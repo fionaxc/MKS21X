@@ -24,6 +24,22 @@ public class Book{
     public String getISBN(){
 	return ISBN;
     }
+
+    public void setAuthor(String a){
+	author = a;
+    }
+
+    public void setTitle(String t){
+	title = t;
+    }
+
+    public void setIBSN(String I){
+	IBSN = I;
+    }
+
+    public String toString(){
+	return "Title: "+title+"; Author: "+author+"; IBSN: "+IBSN;
+    }
 }
 
     
