@@ -47,7 +47,7 @@ public class SuperArray implements Iterable<String>{
 
     public String get(int index){
         if (index < 0 || index >= size()){
-            throw new IndexOutofBoundsException();
+            System.out.println("Invalid index at: "+index);
         
         }
      return data[index]; 
@@ -55,7 +55,7 @@ public class SuperArray implements Iterable<String>{
 
     public String set(int index, String element){
         if (index < 0 || index >= size()){  
-            throw new IndexOutofBoundsException();      
+            System.out.println("Invalid index at: "+index);     
      
         }
         String getsReturned = get(index);
@@ -103,7 +103,7 @@ public class SuperArray implements Iterable<String>{
     public void add(int index, String element){
         
         if (index < 0 || index >= size()){
-            throw new IndexOutofBoundsException();
+            System.out.println("Invalid index at: "+index);
         }else {
             resize();
         
@@ -118,7 +118,7 @@ public class SuperArray implements Iterable<String>{
 
     public String remove(int index){
         if (index < 0 || index >= size()){
-            throw new IndexOutofBoundsException(); 
+            System.out.println("Invalid index at: "+index); 
 
         }
         
@@ -136,6 +136,10 @@ public class SuperArray implements Iterable<String>{
             return true;
         }
         return false;
+    }
+    
+    public Iterator<String> iterator(){
+        return new SuperArrayIterator(this);
     }
 
 }
