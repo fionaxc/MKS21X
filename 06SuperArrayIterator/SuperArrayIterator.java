@@ -1,21 +1,22 @@
-private class SuperArrayIterator extends SuperArray implements Iterator<String>{
+import java.util.*;
+public class SuperArrayIterator implements Iterator<String>{
         private SuperArray target;
-        private int element;
-        public SuperArrayIterator(SuperArray s, int i){
+        private int position = 0;
+    
+        public SuperArrayIterator(SuperArray s){
             target = s;
-            element = i;
         }
         public String next(){
             if(hasNext()){
-                element++;
+                position++;
             }
             else{
                 System.exit(0);
             }
-            return target.get(element-1);
+            return target.get(position-1);
         }
         public boolean hasNext(){
-            return element < target.size();
+            return position < target.size();
         }
         public void remove(){
             throw new UnsupportedOperationException();
