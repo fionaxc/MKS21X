@@ -14,19 +14,19 @@ public class ReferenceBook extends LibraryBook{
         collection = collect;
     }
     
-    public String checkout(String patron, String due){
-        return "cannot check out reference book";
+    public void checkout(String patron, String due){
+        System.out.println("cannot check out reference book");
     }
     
-    public String returned(){
-        return "reference book could not have been checked out -- return impossible";
+    public void returned(){
+        System.out.println("reference book could not have been checked out -- return impossible");
     }
     
-    public String circulationStaus(){
+    public String circulationStatus(){
         return "non-circulating reference book";
     }
     
     public String toString(){
-        super.toString() + "Collection: " + getCollection();
+        return super.toString() + "Collection: " + getCollection();
     }
 }
