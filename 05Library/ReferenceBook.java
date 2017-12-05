@@ -13,4 +13,20 @@ public class ReferenceBook extends LibraryBook{
     public void setCollection(String collect){
         collection = collect;
     }
+    
+    public String checkout(String patron, String due){
+        return "cannot check out reference book";
+    }
+    
+    public String returned(){
+        return "reference book could not have been checked out -- return impossible";
+    }
+    
+    public String circulationStaus(){
+        return "non-circulating reference book";
+    }
+    
+    public String toString(){
+        super.toString() + "Collection: " + getCollection();
+    }
 }
