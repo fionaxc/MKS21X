@@ -1,16 +1,12 @@
 public class Book{
     private String author;
     private String title;
-    private String ISBN;
-
-    public Book{
-	
-    }
+    private String isbn;
 
     public Book(String a, String t, String I){
-	author = a;
-	title = t;
-	ISBN = I;
+        author = a;
+        title = t;
+        isbn = I;
     }
 
     public String getAuthor(){
@@ -22,7 +18,7 @@ public class Book{
     }
 
     public String getISBN(){
-	return ISBN;
+	return isbn;
     }
 
     public void setAuthor(String a){
@@ -34,11 +30,11 @@ public class Book{
     }
 
     public void setIBSN(String I){
-	IBSN = I;
+        isbn= I;
     }
 
     public String toString(){
-	return "Title: "+title+"; Author: "+author+"; IBSN: "+IBSN;
+	return "Title: "+title+"; Author: "+author+"; IBSN: "+isbn;
     }
 }
 
