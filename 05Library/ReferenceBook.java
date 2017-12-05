@@ -5,4 +5,8 @@ public class ReferenceBook extends LibraryBook{
         super(a,t,I,call);
         collection = c;
     }
+    
+    public String getCollection(){
+        return collection;
+    }
 }
