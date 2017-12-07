@@ -9,7 +9,11 @@ public class Barcode implements Comparable<Barcode>{
 	//Constructor
     public Barcode(String zip){
         if(zip.length() != 5 || this.checkNum(zip)){
+<<<<<<< HEAD
             throw new IllegalArgumentException;
+=======
+            throw new IllegalArgumentException();
+>>>>>>> 76803bfefb06a215816e4f467daa723f85f2790a
         }
         else{
              this.zip = zip;     
@@ -24,6 +28,7 @@ public class Barcode implements Comparable<Barcode>{
     
     public String getCode(){
 	    	String ans = "";
+<<<<<<< HEAD
 	    	int sum = 0;
 	    	for (int i = 0; i < zip.length(); i++){
 	    		String target = zip.substring(i,i+1);
@@ -61,6 +66,17 @@ public class Barcode implements Comparable<Barcode>{
     }
     
     
+=======
+	    	for (int i = 0; i < zip.length(); i++){
+	    		String target = zip.substring(i,i+1);
+	    	    ans += getNumCode(Integer.parseInt(target));
+	    	}
+      		int sum = getSum(zip);
+	    	ans += getNumCode(sum % 10);
+	    	return "|"+ ans + "|";
+    }
+    
+>>>>>>> 76803bfefb06a215816e4f467daa723f85f2790a
     //Compare TO
     public int compareTo(Barcode target){
     	return Integer.parseInt(zip) - Integer.parseInt(target.zip);
@@ -97,7 +113,44 @@ public class Barcode implements Comparable<Barcode>{
     		Barcode tmp = new Barcode(zip);
     		return tmp.getCode();
     }
+<<<<<<< HEAD
     public String toString(){
         
     }
 }
+=======
+    
+    //To string 
+    public String toString(){
+    	return getCode() + " (" + zip + ")";
+    }
+    
+    //Supplementary Methods---------------------
+    //get the sum of the zip
+    public int getSum(String target){
+        int sum = 0;
+        for(int i = 0; i<target.length();i++){
+            sum += Integer.parseInt(target.substring(i,i+1));
+        }
+        return sum;
+    }
+    
+    //Match number to code
+    private static String getNumCode(int i){
+    		String[] codes = {"||:::",":::||","::|:|","::||:",":|::|",":|:|:",":||::","|:::|","|::|:", "|:|::"};
+    		return codes[i];
+    }
+    
+    //check if all numbers of zip are numbers 
+    public boolean checkNum(String target){
+        int sum = 0;
+        for(int i = 0; i< target.length();i++){
+            if("012345689".indexOf(target.charAt(i)) == -1){
+                sum ++;
+            }
+        }
+        return sum == 0;
+    }
+    
+}
+>>>>>>> 76803bfefb06a215816e4f467daa723f85f2790a
