@@ -68,8 +68,8 @@ public class Sorts{
     //Change this part with any test case you like by
     //commenting and uncommenting
     
-    int[] a = {64, 25, 12, 22, 11};
-    //int[] a = {34, 25, 12, 22, 12};
+    //int[] a = {64, 25, 12, 22, 11};
+    int[] a = {34, 25, 12, 22, 12};
     //int[] a = {6, 25, -12, 22, 1, 32, 22};
     //int[] a = {-5, -25, -12, -15, 1};
     //int[] a = {1, 1, 0, 1, 0, 0};
