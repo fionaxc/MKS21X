@@ -46,7 +46,7 @@ public class Sorts{
   }
   
   public static void bubbleSort(int[] data){
- 	int numswap = 1;
+    int numswap = 2;
     while(numswap > 0){
     numswap = 0;
     for(int i = 0; i<data.length-1;i++){
