@@ -1,13 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.events.*;
+import java.awt.event.*;
 
 public class TemperatureWindow extends JFrame implements ActionListener{
 private Container pane;
 
- private JButton b;
+ private JButton ctof;
+ private JButton ftoc;
  private JLabel l;
- private JTextField t;
+ private JTextField text;
  private JCheckBox c;
  
   //CONSTRUCTOR SETS EVERYTHING UP
@@ -22,20 +23,36 @@ private Container pane;
     
      ctof = new JButton("Convert to Farenheit");
      ftoc = new JButton("Convert to Celcius");
-     l = new JLabel("This is AWESOME! (lies)",null,JLabel.CENTER);
-     t = new JTextField(12);
+     l = new JLabel("Converting Temperatures",null,JLabel.CENTER);
+     text = new JTextField(12);
      pane.add(l);
      pane.add(ctof);
-     pane.add(t);
+     pane.add(ftoc);
+     pane.add(text);
  }
 
     public void actionPerformed(ActionEvent e){
 	String event = e.getActionCommand();
-	System.out.println(event);
+	System.out.println(event); //prints the actions
 	if(event.equals("Convert to Farenheit")){
-	    
+	    text.setText(String.valueOf(CtoF(Double.parseDouble(text.getText()))));
+	
+	}
+	if(event.equals("Convert to Celsius")){
+	    text.setText(String.valueOf(FtoC(Double.parseDouble(text.getText()))));
+	
+	}
 	
     }
+
+    public static double CtoF(double t){
+	return (t * 1.8) + 32;
+    }
+
+    public static double FtoC(double t){
+	return (t - 32) / 1.8;
+    }
+
   //MAIN JUST INSTANTIATES + MAKE VISIBLE
   public static void main(String[] args) {
      TemperatureWindow g = new TemperatureWindow();
