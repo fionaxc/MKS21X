@@ -13,7 +13,7 @@ private Container pane;
  
   //CONSTRUCTOR SETS EVERYTHING UP
   public TemperatureWindow() {
-     this.setTitle("My first GUI");
+     this.setTitle("Temperature Conversion GUI");
      this.setSize(600,400);
      this.setLocation(100,100);
      this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -25,6 +25,7 @@ private Container pane;
      ftoc = new JButton("Convert to Celcius");
      l = new JLabel("Converting Temperatures",null,JLabel.CENTER);
      text = new JTextField(12);
+     
      pane.add(l);
      pane.add(ctof);
      pane.add(ftoc);
@@ -32,8 +33,8 @@ private Container pane;
  }
 
     public void actionPerformed(ActionEvent e){
-	String event = e.getActionCommand();
-	System.out.println(event); //prints the actions
+	String event = e.getActionCommand(); //stores the button that you pressed in the event string
+	//	System.out.println(event); //prints the actions
 	if(event.equals("Convert to Farenheit")){
 	    text.setText(String.valueOf(CtoF(Double.parseDouble(text.getText()))));
 	
