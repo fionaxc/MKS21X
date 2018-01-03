@@ -19,8 +19,8 @@ public class ReversedCharSequence implements CharSequence{
     }
 
     public CharSequence subSequence(int start, int end){
-        ReverseCharSequence r = new ReverseCharSequence(bkstring.substring(start,end));
-        return new ReverseCharSequence(r.bkstring);
+        ReversedCharSequence r = new ReversedCharSequence(bkstring.substring(start,end));
+        return new ReversedCharSequence(r.bkstring);
     }
 
     public String toString(){
