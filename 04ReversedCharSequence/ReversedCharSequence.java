@@ -1,7 +1,7 @@
-public class ReverseCharSequence implements CharSequence{
+public class ReversedCharSequence implements CharSequence{
     public String bkstring;
     public String string;
-    public ReverseCharSequence(String str){
+    public ReversedCharSequence(String str){
         String ans = "";
 	    for(int i = str.length()-1; i>=0;i--){
 	        ans += str.substring(i,i+1);
@@ -19,17 +19,19 @@ public class ReverseCharSequence implements CharSequence{
     }
 
     public CharSequence subSequence(int start, int end){
-        ReverseCharSequence r = new ReverseCharSequence(bkstring.substring(start,end));
-        return new ReverseCharSequence(r.bkstring);
+        ReversedCharSequence r = new ReversedCharSequence(bkstring.substring(start,end));
+        return new ReversedCharSequence(r.bkstring);
     }
 
     public String toString(){
 	   return bkstring;
     }
-    
+
+    /*
     public static void main(String[] args){
         String s = "ABCDEF";
-        ReverseCharSequence r = new ReverseCharSequence(s);
+        ReversedCharSequence r = new ReversedCharSequence(s);
         System.out.println(r.subSequence(0,4));
     }
+    */
 }

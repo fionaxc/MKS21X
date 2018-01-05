@@ -65,6 +65,7 @@ public class Sorts{
         System.out.println();
   }
   public static void main(String[]args){
+      /*
     //Change this part with any test case you like by
     //commenting and uncommenting
     
@@ -80,6 +81,7 @@ public class Sorts{
     bubbleSort(a);
     System.out.println("---Sorted Array---");
     printArray(a);
+      */
 	}
 }
 
