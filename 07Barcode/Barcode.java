@@ -9,7 +9,7 @@ public class Barcode implements Comparable<Barcode>{
 		throw new IllegalArgumentException();
 	    }
 	}
-        if(zip.length() != 5 || this.checkNum(zip)){
+        if(zip.length() != 5){
             throw new IllegalArgumentException();
         }
 
@@ -37,6 +37,9 @@ public class Barcode implements Comparable<Barcode>{
     private static String getNumCode(int i){
         String[] codes = {"||:::",":::||","::|:|","::||:",":|::|",":|:|:",":||::","|:::|","|::|:", "|:|::"};
         return codes[i];
+    }
+    public int compareTo(Barcode b){
+       return this.zipToInt() - b.zipToInt();
     }
 
     public boolean checkNum(String target){
@@ -86,9 +89,6 @@ public class Barcode implements Comparable<Barcode>{
 	return getCode() + " (" + zip + ")";
     }
 
-    public int compareTo(Barcode b){
-	     return this.zipToInt() - b.zipToInt();
-    }
 
     public boolean equals(Barcode b){
 	return this.zipToInt() == b.zipToInt();
