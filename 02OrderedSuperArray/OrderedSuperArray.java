@@ -29,7 +29,9 @@ public class OrderedSuperArray extends SuperArray{
         }
       return true;
   }
-
+  public String set(int index, String element) {
+		throw new UnsupportedOperationException();
+	}
   public int indexOfBinary(String element){
       if (size() <= 0) {
 			return -1;
@@ -50,6 +52,35 @@ public class OrderedSuperArray extends SuperArray{
 		}
 		return start;
     }
+
+    public int lastIndexOfBinary(String element) {
+  		if (size() <= 0) {
+  			return -1;
+  		}
+  		int start = indexOfBinary(element);
+  		int end = size();
+  		int mid;
+  		while (start!=end) {
+  			mid=(start+end)/2;
+  			if (super.get(mid).compareTo(element)>0) {
+  				end=mid;
+  			}
+  			else if (super.get(mid).equals(element)) {
+  				if (start == size() - 1 || !(get(mid + 1).equals(element))){
+  				    return mid;
+  				}
+  				end = mid;
+  				start = mid-1;
+  			}
+  			else {
+  				start = mid+1;
+  			}
+  		}
+  		if (get(start) != element){
+  		    return -1;
+  		}
+  		return start;
+  	}
   private int findIndexBinary(String element){
       if(size()==0){
           return 0;
@@ -66,5 +97,17 @@ public class OrderedSuperArray extends SuperArray{
             }
         }
       return start;
+    }
+    private int findIndex(String value) {
+      int index = size();
+      if (size()==0) {
+        index = 0;
+      }
+      for (int i = 0; i < size(); i++) {
+        if (value.compareTo(super.get(i)) >= 0) {
+          index = i;
+        }
+      }
+      return index;
     }
 }
