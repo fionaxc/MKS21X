@@ -1,15 +1,16 @@
 public class ReversedCharSequence implements CharSequence{
     public String bkstring;
     public String string;
+
+
     public ReversedCharSequence(String str){
-        String ans = "";
-	    for(int i = str.length()-1; i>=0;i--){
-	        ans += str.substring(i,i+1);
+      string = str;
+      bkstring = "";
+	    for(int i = str.length()-1; i> -1;i--){
+	        bkstring += str.substring(i,i+1);
 	    }
-	    bkstring = ans;
-        string = str;
     }
-    
+
     public char charAt(int index){
 	   return bkstring.charAt(index);
     }
@@ -18,9 +19,19 @@ public class ReversedCharSequence implements CharSequence{
 	   return bkstring.length();
     }
 
-    public CharSequence subSequence(int start, int end){
-        ReversedCharSequence r = new ReversedCharSequence(bkstring.substring(start,end));
-        return new ReversedCharSequence(r.bkstring);
+    public ReversedCharSequence subSequence(int start, int end){
+        String sub ="";
+    for (int i = start; i < end; i++) {
+      sub += bkstring.charAt(i);
+    }
+    String tmp = "";
+    for (int i = sub.length() - 1; i >= 0; i--) {
+      tmp += sub.charAt(i);
+    }
+    ReversedCharSequence ans = new ReversedCharSequence(tmp);
+    return ans;
+
+
     }
 
     public String toString(){
