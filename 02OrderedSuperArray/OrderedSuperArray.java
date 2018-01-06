@@ -1,6 +1,6 @@
 public class OrderedSuperArray extends SuperArray{
 
- 
+
   public OrderedSuperArray(){
       super();
   }
@@ -9,12 +9,24 @@ public class OrderedSuperArray extends SuperArray{
 	super(capacity);
     }
 
+    public OrderedSuperArray(String [] ary) {
+      super(ary.length);
+      for (int i=0; i<ary.length; i++) {
+        add(ary[i]);
+      }
+    }
   public void add(int index, String value){
     add(value);
   }
 
   public boolean add(String value){
-      super.add(findIndexBinary(value),value);
+
+    		if (this.size() == 0){
+    		    super.add(0, value);
+    		}
+        else{
+          super.add(findIndexBinary(value),value);
+        }
       return true;
   }
 
@@ -43,23 +55,16 @@ public class OrderedSuperArray extends SuperArray{
           return 0;
       }
       int start = 0;
-        int end = size()-1;
-        while(start < end-2){
+        int end = size();
+        while(start != end){
             int middle = (start+end)/2;
-            if(element.compareTo(super.get(middle)) > 0){
-                start = middle + 1;
-            }
-            else{
+            if(element.compareTo(super.get(middle)) <= 0){
                 end = middle;
             }
+            else{
+                start = middle+1;
+            }
         }
-      if(start == end){
-          return start + 1;
-      }
-      else{
-          return end;
-      }
+      return start;
     }
 }
-
-
