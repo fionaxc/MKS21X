@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.ArrayList;
 public class SuperArray{
 
     private String[] data;
@@ -8,8 +9,8 @@ public class SuperArray{
         data = new String[10];
     }
 
-    public SuperArray(int startingCapacity){
-	     data = new String[startingCapacity];
+    public SuperArray(int capacity){
+	     data = new String[capacity];
     }
 
 
@@ -91,7 +92,7 @@ public class SuperArray{
       }
 
           String[] tmp = new String[data.length];
-        if (index < 0 || index >= size()){
+        if (index < 0 || index > size()){
             throw new IndexOutOfBoundsException();
         }
         if (data.length == size){
@@ -157,5 +158,20 @@ public class SuperArray{
         }
         return false;
     }
-
+/*
+    public static void main(String[] args) {
+      SuperArray s1 = new SuperArray();
+      ArrayList<String> s2 = new ArrayList<>();
+      s1.add("0");
+      s2.add("0");
+      s1.add("1");
+      s2.add("1");
+      s1.add(1,"5");
+      s2.add(1,"5");
+      s1.add(0,"6");
+      s2.add(0,"6");
+      s1.add(s1.size(),"4");
+      s2.add(s2.size(),"4");
+    }
+*/
 }
